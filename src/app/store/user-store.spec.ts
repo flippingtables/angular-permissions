@@ -1,5 +1,5 @@
 import { UserStore } from './user-store';
-import { admin, client, everyone } from './user-types';
+import { admin, client, everyone, readerAndWriter } from './user-types';
 
 describe('MoviesComponentStore', () => {
 
@@ -33,6 +33,22 @@ describe('MoviesComponentStore', () => {
 
             userStore.user$.subscribe(user => {
                 expect(user).toEqual(admin);
+                done();
+            });
+        });
+    });
+
+    describe('hasAnyRole function', () => {
+        it('readerAndWriter', (done) => {
+            const userStore = new UserStore();
+            userStore.setUser(readerAndWriter);
+
+            userStore.hasAnyRole(['READER', 'WRITER']).subscribe(hasRole => {
+                expect(hasRole).toBe(true);
+            });
+
+            userStore.hasAnyRole(['MANAGER', 'CLIENT']).subscribe(hasRole => {
+                expect(hasRole).toBe(false);
                 done();
             });
         });

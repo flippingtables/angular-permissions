@@ -1,9 +1,8 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ComponentStore } from '@ngrx/component-store';
 import { UserStore } from '../user-store';
 import { User, userTypes } from '../user';
-import { FormsModule, NgModel, UntypedFormBuilder } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-user-switcher',

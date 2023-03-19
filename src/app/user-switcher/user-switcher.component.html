@@ -1,0 +1,15 @@
+<div>
+    <h1>Set user:</h1>
+    <select name="user" [(ngModel)]="selected" (ngModelChange)="set($event)">
+        <option *ngFor="let type of allUsers;" [ngValue]="type">{{type.name}}</option>
+    </select>
+</div>
+
+<div>
+    <h1>Current User: </h1>
+    <ng-container *ngIf="user$ | async as user ">
+        <p>User: {{user.name}}</p>
+        <p>IsAdmin: {{user.isAdmin}}</p>
+        <p>Roles: {{user.roles.join(', ')}}</p>
+    </ng-container>
+</div>

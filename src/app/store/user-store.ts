@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { ComponentStore } from '@ngrx/component-store';
 import { map } from 'rxjs';
 import { Role, User } from './user';
-import { reader } from './user-types';
+import { everyone } from './user-types';
 
 export interface UserState {
   user: User;
@@ -11,7 +11,7 @@ export interface UserState {
 @Injectable()
 export class UserStore extends ComponentStore<UserState> {
   constructor() {
-    super({ user: reader });
+    super({ user: everyone });
   }
 
   readonly user$ = this.select((state) => state.user);

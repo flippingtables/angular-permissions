@@ -9,7 +9,7 @@ import { UserStore } from './user-store';
   imports: [CommonModule, HasRoleDirective],
   providers: [UserStore],
   template: `
-    <h2 class="mt-10 text-xl">Information Panel</h2>
+    <h2>Information Panel</h2>
 
     <div>Actual testing:</div>
     <div *hasRoleIsAdmin="true">visible only for super admin</div>

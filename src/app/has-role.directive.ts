@@ -8,7 +8,7 @@ import { UserStore } from './user-store';
 @Directive({
   selector: '[hasRole], [hasRoleIsAdmin]',
   standalone: true,
-  hostDirectives: [NgIf], // 👈🏼 the beauty of Angular v15 is located here
+  hostDirectives: [NgIf],
   providers: [ComponentStore],
 })
 export class HasRoleDirective {
@@ -32,7 +32,7 @@ export class HasRoleDirective {
     boolean | undefined
   >(
     pipe(
-      tap((showTemplate) => (this.ngIf.ngIf = showTemplate)) // 🥰
+      tap((showTemplate) => (this.ngIf.ngIf = showTemplate))
     )
   );
 }

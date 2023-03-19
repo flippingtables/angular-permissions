@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { HasRoleDirective } from './has-role.directive';
-import { UserStore } from './user-store';
+import { UserStore } from './store/user-store';
 import { UserSwitcherComponent } from './user-switcher/user-switcher.component';
 
 @Component({

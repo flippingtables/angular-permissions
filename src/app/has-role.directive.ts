@@ -2,8 +2,8 @@ import { NgIf } from '@angular/common';
 import { Directive, inject, Input } from '@angular/core';
 import { ComponentStore } from '@ngrx/component-store';
 import { pipe, tap } from 'rxjs';
-import { Role } from './user';
-import { UserStore } from './user-store';
+import { Role } from './store/user';
+import { UserStore } from './store/user-store';
 
 @Directive({
   selector: '[hasRole], [hasRoleIsAdmin]',

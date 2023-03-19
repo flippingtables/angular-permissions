@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { ComponentStore } from '@ngrx/component-store';
 import { map } from 'rxjs';
-import { admin, everyone, reader, readerAndWriter, Role, User } from './user';
+import { Role, User } from './user';
+import { reader } from './user-types';
 
 export interface UserState {
   user: User;

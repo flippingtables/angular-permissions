@@ -42,4 +42,5 @@ jobs:
           npm run build
       - name: Test
         run: |
-          npm run test
+          npm run test:prod
+

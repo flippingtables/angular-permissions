@@ -10,8 +10,7 @@ import { User } from '../user/user';
   standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './user-switcher.component.html',
-  styleUrls: ['./user-switcher.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./user-switcher.component.scss']
 })
 export class UserSwitcherComponent {
   private store = inject(UserStore);

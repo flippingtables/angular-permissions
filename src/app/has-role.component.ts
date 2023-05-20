@@ -11,7 +11,7 @@ import { SignalStore } from './signal-store/signal-store';
   selector: 'app-has-role-component',
   standalone: true,
   imports: [CommonModule, HasRoleDirective, SignalHasRoleDirective, UserSwitcherComponent, SignalUserSwitcherComponent],
-  providers: [UserStore, SignalStore],
+  providers: [UserStore],
   template: `
     <h1>NGRX Component Store</h1>
     <app-user-switcher></app-user-switcher>

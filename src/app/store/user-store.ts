@@ -16,7 +16,7 @@ export class UserStore extends ComponentStore<UserState> {
 
   readonly user$ = this.select((state) => state.user);
   readonly isAdmin$ = this.select((state) => state.user.isAdmin);
-  readonly setUser = this.updater((state, user: User) => ({
+  readonly setUser = this.updater((_, user: User) => ({
     user: user
   }));
 

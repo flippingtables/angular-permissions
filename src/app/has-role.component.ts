@@ -22,6 +22,4 @@ import { UserSwitcherComponent } from './user-switcher/user-switcher.component';
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HasRoleComponentComponent {
-  constructor() {}
-}
+export class HasRoleComponentComponent {}

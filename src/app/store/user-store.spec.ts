@@ -1,5 +1,5 @@
 import { UserStore } from './user-store';
-import { admin, client, everyone, readerAndWriter } from './user-types';
+import { admin, client, everyone, readerAndWriter } from '../user/user-types';
 
 describe('MoviesComponentStore', () => {
 

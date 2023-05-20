@@ -3,12 +3,15 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { HasRoleDirective } from './has-role.directive';
 import { UserStore } from './store/user-store';
 import { UserSwitcherComponent } from './user-switcher/user-switcher.component';
+import { SignalHasRoleDirective } from './signal-store/signal-has-role.directive';
+import { SignalUserSwitcherComponent } from './signal-user-switcher/signal-user-switcher.component';
+import { SignalStore } from './signal-store/signal-store';
 
 @Component({
   selector: 'app-has-role-component',
   standalone: true,
-  imports: [CommonModule, HasRoleDirective, UserSwitcherComponent],
-  providers: [UserStore],
+  imports: [CommonModule, HasRoleDirective, SignalHasRoleDirective, UserSwitcherComponent, SignalUserSwitcherComponent],
+  providers: [UserStore, SignalStore],
   template: `
     <app-user-switcher></app-user-switcher>
     
@@ -19,7 +22,9 @@ import { UserSwitcherComponent } from './user-switcher/user-switcher.component';
     <p *hasRole="['MANAGER', 'WRITER']">visible if manager and/or writer</p>
     <p *hasRole="'CLIENT'">visible if client</p>
     <p>Visible for everyone</p>
-  `,
-  changeDetection: ChangeDetectionStrategy.OnPush,
+
+    <br>
+    <signal-app-user-switcher></signal-app-user-switcher>
+  `
 })
 export class HasRoleComponentComponent {}

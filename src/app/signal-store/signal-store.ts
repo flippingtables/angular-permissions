@@ -2,12 +2,12 @@ import { Injectable, signal } from "@angular/core";
 import { everyone } from "../user/user-types";
 import { Role, User } from "../user/user";
 
-@Injectable({ providedIn: 'root' })
+@Injectable({providedIn: "root"})
 export class SignalStore {
-    #currentUser = signal<User>(everyone);
+    currentUser = signal<User>(everyone);
     
     user(): User {
-        return this.#currentUser();
+        return this.currentUser();
     }
     
     isAdmin(): boolean {
@@ -15,7 +15,7 @@ export class SignalStore {
     }
     
     setUser(newUser: User) {
-        this.#currentUser.set(newUser);
+        this.currentUser.set(newUser);
     }
     
     hasAnyRole(role: Role | Role[]) {

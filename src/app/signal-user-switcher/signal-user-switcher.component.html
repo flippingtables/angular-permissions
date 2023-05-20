@@ -1,0 +1,13 @@
+<div>
+    <h1>Set user:</h1>
+    <select name="userSelect" [(ngModel)]="allUsers[0]" (ngModelChange)="set($event)">
+        <option *ngFor="let type of allUsers;" [ngValue]="type">{{type.name}}</option>
+    </select>
+</div>
+
+<div>
+    <h1>Current User: </h1>
+    <p>User: {{store.currentUser().name}}</p>
+    <p>IsAdmin: {{store.currentUser().isAdmin}}</p>
+    <p>Roles: {{store.currentUser().roles.join(', ')}}</p>
+</div>

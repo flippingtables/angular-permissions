@@ -11,7 +11,7 @@ import { Role } from '../user/user';
   standalone: true,
   hostDirectives: [NgIf],
 })
-export class HasRoleDirective {
+export class SignalHasRoleDirective {
   private store = inject(SignalStore);
   private ngIf = inject(NgIf, { host: true });
   private showTemplate = signal(false);

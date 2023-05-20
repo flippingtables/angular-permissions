@@ -1,7 +1,5 @@
 import { NgIf } from '@angular/common';
 import { Directive, effect, inject, Input, signal } from '@angular/core';
-import { ComponentStore } from '@ngrx/component-store';
-import { pipe, tap } from 'rxjs';
 import { SignalStore } from './signal-store';
 import { Role } from '../user/user';
 
@@ -22,14 +20,16 @@ export class SignalHasRoleDirective {
     }
   }
 
-  @Input('hasRoleIsAdmin') set isAdmin(isAdmin: boolean) {
+  @Input('signalHasRoleIsAdmin') set isAdmin(isAdmin: boolean) {
     if (isAdmin) {
-      this.showTemplate.set(this.store.isAdmin());
+      this.showTemplate.set(this.store.user().isAdmin);
     }
   }
 
   constructor() {
+    
     effect(()=> {
+        this.ngIf.ngIf = this.showTemplate();
         console.log(`The showTemplated changed ${this.showTemplate()})`)
     })
   }

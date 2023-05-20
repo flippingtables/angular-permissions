@@ -1,4 +1,4 @@
-import { Injectable, signal } from "@angular/core";
+import { Injectable, effect, signal } from "@angular/core";
 import { everyone } from "../user/user-types";
 import { Role, User } from "../user/user";
 
@@ -6,6 +6,11 @@ import { Role, User } from "../user/user";
 export class SignalStore {
     currentUser = signal<User>(everyone);
     
+    constructor(){
+        effect(()=> {
+            console.log('user changed', this.currentUser())
+        });
+    }
     user(): User {
         return this.currentUser();
     }

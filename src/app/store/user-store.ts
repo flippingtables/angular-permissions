@@ -3,6 +3,7 @@ import { ComponentStore } from '@ngrx/component-store';
 import { map } from 'rxjs';
 import { everyone } from '../user/user-types';
 import { Role, User } from '../user/user';
+import { hasAnyRole } from '../user/user-functions';
 
 export interface UserState {
   user: User;
@@ -17,20 +18,9 @@ export class UserStore extends ComponentStore<UserState> {
   readonly user$ = this.select((state) => state.user);
   readonly isAdmin$ = this.select((state) => state.user.isAdmin);
   readonly setUser = this.updater((_, user: User) => ({
-    user: user
+    user: user,
   }));
 
-  readonly hasAnyRole = (role: Role | Role[]) =>
-    this.user$.pipe(
-      map((user) => {
-        if (user.isAdmin) {
-          return true;
-        }
-
-        const roles: Role[] = Array.isArray(role) ? role : [role];
-        return (
-          roles.length === 0 || user?.roles.some((r) => roles.indexOf(r) !== -1)
-        );
-      })
-    );
+  readonly hasAnyRole$ = (role: Role | Role[] | undefined) =>
+    this.user$.pipe(map((user) => hasAnyRole(user, role)));
 }

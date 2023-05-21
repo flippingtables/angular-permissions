@@ -2,6 +2,7 @@ import { NgIf } from '@angular/common';
 import { computed, Directive, effect, inject, Input, signal } from '@angular/core';
 import { SignalStore } from '../signal-store/signal-store';
 import { Role } from '../user/user';
+import { hasAnyRole } from '../user/user-functions';
 
 @Directive({
   selector: '[signalHasRole], [signalHasRoleIsAdmin]',
@@ -18,7 +19,7 @@ export class SignalHasRoleDirective {
     if (this._isAdmin()) {
       return this.store.currentUser().isAdmin;
     } else {
-      return this.store.hasAnyRole(this._role());
+      return hasAnyRole(this.store.currentUser(), this._role());
     }
   });
   

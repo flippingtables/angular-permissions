@@ -1,6 +1,6 @@
 import { NgIf } from '@angular/common';
 import { computed, Directive, effect, inject, Input, signal } from '@angular/core';
-import { SignalStore } from './signal-store';
+import { SignalStore } from '../signal-store/signal-store';
 import { Role } from '../user/user';
 
 @Directive({

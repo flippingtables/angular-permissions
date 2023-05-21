@@ -1,11 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { HasRoleDirective } from './has-role.directive';
+import { HasRoleDirective } from './directives/has-role.directive';
 import { UserStore } from './store/user-store';
 import { UserSwitcherComponent } from './user-switcher/user-switcher.component';
-import { SignalHasRoleDirective } from './signal-store/signal-has-role.directive';
+import { SignalHasRoleDirective } from './directives/signal-has-role.directive';
 import { SignalUserSwitcherComponent } from './signal-user-switcher/signal-user-switcher.component';
-import { SignalStore } from './signal-store/signal-store';
 
 @Component({
   selector: 'app-has-role-component',

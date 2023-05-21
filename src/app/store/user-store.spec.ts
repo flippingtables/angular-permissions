@@ -43,11 +43,11 @@ describe('MoviesComponentStore', () => {
       const userStore = new UserStore();
       userStore.setUser(readerAndWriter);
       
-      userStore.hasAnyRole(['READER', 'WRITER']).subscribe(hasRole => {
+      userStore.hasAnyRole$(['READER', 'WRITER']).subscribe(hasRole => {
         expect(hasRole).toBe(true);
       });
       
-      userStore.hasAnyRole(['MANAGER', 'CLIENT']).subscribe(hasRole => {
+      userStore.hasAnyRole$(['MANAGER', 'CLIENT']).subscribe(hasRole => {
         expect(hasRole).toBe(false);
         done();
       });

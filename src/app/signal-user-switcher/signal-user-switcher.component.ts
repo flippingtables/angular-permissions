@@ -15,6 +15,7 @@ export class SignalUserSwitcherComponent {
   store = inject(SignalStore);
 
   allUsers = userTypes;
+  selected: User = userTypes[0];
 
   set(user: User){
     this.store.setUser(user);

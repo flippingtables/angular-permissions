@@ -9,8 +9,7 @@ import { User } from '../user/user';
   selector: 'app-user-switcher',
   standalone: true,
   imports: [CommonModule, FormsModule],
-  templateUrl: './user-switcher.component.html',
-  styleUrls: ['./user-switcher.component.scss']
+  templateUrl: './user-switcher.component.html'
 })
 export class UserSwitcherComponent {
   private store = inject(UserStore);
